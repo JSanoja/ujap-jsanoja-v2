@@ -22,7 +22,7 @@ La App 1 se **actualiza y queda funcionando como referencia**. No se le agregan 
 ## Estado tras A2 (2026-09-27)
 
 - `master` = Angular 22.2 (standalone, zoneless, builder `application`, Vitest, angular-eslint), TypeScript 6.0, Node 24; three **0.129.0** y @types/three 0.128.0 fijados hasta A3.
-- Remotos: `upstream` = plantilla original; `origin` = repo **público** `ujap-jsanoja-v2` (pendiente de crear). Pages vía `.github/workflows/pages.yml`.
+- Remotos: `upstream` = plantilla original; `origin` = `git@github.com:JSanoja/ujap-jsanoja-v2.git` (público; `gh` autenticado en WSL). Demo: https://jsanoja.github.io/ujap-jsanoja-v2/ (se despliega en cada push a `master`).
 - Etiquetas: `v0-legacy` (Angular 12, requiere Node 14 + `npm install --legacy-peer-deps` con npm 8), `v1-angular-22`.
 - `ng lint` tiene 44 errores del código heredado (se corrigen en A4).
 
