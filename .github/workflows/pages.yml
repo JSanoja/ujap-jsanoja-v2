@@ -25,6 +25,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - run: npx ng lint
+      - run: npx ng test --watch=false
       - run: npx ng build --base-href "/${{ github.event.repository.name }}/"
       # Sin enrutador, pero 404.html evita errores si se recarga una URL distinta
       - run: cp dist/ujap-jsanoja-v2/browser/index.html dist/ujap-jsanoja-v2/browser/404.html
