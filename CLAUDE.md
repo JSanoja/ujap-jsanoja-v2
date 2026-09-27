@@ -7,6 +7,10 @@ Contexto completo del proyecto en `..\docs\` (leer al empezar):
 - `01-WORKUNITS.md` — tablero de tareas; **actualizar estado y registro de decisiones al terminar cada workunit**.
 - `03-ESPEC-FORMATO-TXT.md` — formato TXT (no aplica a la App 1).
 
+## ✅ App 1 cerrada (2026-09-27)
+
+Versión final `v3-limpieza`. No se le agregan funciones; el trabajo sigue en la App 2 (repo nuevo). Traspaso y lecciones en `..\docs\05-CIERRE-APP1-TRASPASO-APP2.md`. Solo se tocaría este repo para corregir un fallo del despliegue o de las dependencias.
+
 ## Alcance de la App 1 (decidido)
 
 La App 1 se **actualiza y queda funcionando como referencia**. No se le agregan TXT, pinza ni editor (eso va en la App 2). Workunits: A1 → A2 → A3 → A4.
