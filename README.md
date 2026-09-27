@@ -47,6 +47,7 @@ Cada push a `master` se publica en GitHub Pages mediante `.github/workflows/page
 |---|---|
 | `v0-legacy` | Estado 2021: Angular 12 + three.js r129 (requiere Node 14) |
 | `v1-angular-22` | Angular 22, standalone, builder `application`; three.js aún en 0.129 |
+| `v2-three-186` | three.js 0.186, lil-gui, gestión de color sRGB y luces físicas |
 
 ## Créditos y licencia
 
