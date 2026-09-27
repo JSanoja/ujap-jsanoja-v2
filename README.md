@@ -36,10 +36,21 @@ Requiere Node 22.22+ o 24.15+.
 npm ci
 npm start          # http://localhost:4200/
 npm run build      # salida en dist/ujap-jsanoja-v2/browser
+npm test -- --watch=false   # pruebas unitarias (Vitest)
 npx ng lint
 ```
 
-Cada push a `master` se publica en GitHub Pages mediante `.github/workflows/pages.yml`.
+Estructura:
+
+| Archivo | Responsabilidad |
+|---|---|
+| `src/app/robot/robot.config.ts` | Piezas, ejes, límites y velocidades |
+| `src/app/robot/robot-model.service.ts` | Estado articular y movimiento (sin three.js) |
+| `src/app/robot/program-runner.service.ts` | Ejecución de secuencias de poses |
+| `src/app/robot/demo-program.ts` | Secuencia de prueba del botón "Execute" |
+| `src/app/engine/scene.service.ts` | Escena three.js, carga de modelos, panel y etiquetas |
+
+Cada push a `master` pasa lint y pruebas y se publica en GitHub Pages mediante `.github/workflows/pages.yml`.
 
 ## Versiones
 
@@ -48,6 +59,7 @@ Cada push a `master` se publica en GitHub Pages mediante `.github/workflows/page
 | `v0-legacy` | Estado 2021: Angular 12 + three.js r129 (requiere Node 14) |
 | `v1-angular-22` | Angular 22, standalone, builder `application`; three.js aún en 0.129 |
 | `v2-three-186` | three.js 0.186, lil-gui, gestión de color sRGB y luces físicas |
+| `v3-limpieza` | Código separado en servicios, bugs corregidos, modo estricto, lint y pruebas |
 
 ## Créditos y licencia
 

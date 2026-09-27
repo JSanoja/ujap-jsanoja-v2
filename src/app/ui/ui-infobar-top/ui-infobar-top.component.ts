@@ -1,21 +1,29 @@
-import { Component, OnInit } from "@angular/core";
-import { EngineService } from "../../engine/engine.service";
+import { Component, inject } from '@angular/core';
+import { SceneService } from '../../engine/scene.service';
+import { DEMO_PROGRAM } from '../../robot/demo-program';
+import { ProgramRunnerService } from '../../robot/program-runner.service';
+import { RobotModelService } from '../../robot/robot-model.service';
 
 @Component({
-  selector: "app-ui-infobar-top",
-  templateUrl: "./ui-infobar-top.component.html",
+  selector: 'app-ui-infobar-top',
+  templateUrl: './ui-infobar-top.component.html',
 })
-export class UiInfobarTopComponent implements OnInit {
-  public constructor(private engineService: EngineService) {}
+export class UiInfobarTopComponent {
+  private readonly sceneService = inject(SceneService);
+  private readonly robot = inject(RobotModelService);
+  protected readonly runner = inject(ProgramRunnerService);
 
-  public ngOnInit(): void {}
-  resetView() {
-    this.engineService.resetView();
+  resetView(): void {
+    this.sceneService.resetView();
   }
-  resetRobot() {
-    this.engineService.resetRobot();
+
+  /** Cancela la secuencia en curso y lleva el robot a 0°. */
+  resetRobot(): void {
+    this.runner.stop();
+    this.robot.resetTargets();
   }
-  execute() {
-    this.engineService.executeAction();
+
+  execute(): void {
+    void this.runner.run(DEMO_PROGRAM);
   }
 }
