@@ -19,11 +19,12 @@ La App 1 se **actualiza y queda funcionando como referencia**. No se le agregan 
 - Antes de cada cambio grande, tomar capturas del estado actual (sirven para el Cap. IV de la tesis) en `..\docs\capturas\`.
 - Windows: usar PowerShell. Finales de línea controlados por `.gitattributes`.
 
-## Estado tras A2 (2026-09-27)
+## Estado tras A3 (2026-09-27)
 
-- `master` = Angular 22.2 (standalone, zoneless, builder `application`, Vitest, angular-eslint), TypeScript 6.0, Node 24; three **0.129.0** y @types/three 0.128.0 fijados hasta A3.
+- `master` = Angular 22.2 (standalone, zoneless, builder `application`, Vitest, angular-eslint), TypeScript 6.0, Node 24; three **0.186.1**, @types/three 0.186.0 y lil-gui 0.21 (desde A3).
 - Remotos: `upstream` = plantilla original; `origin` = `git@github.com:JSanoja/ujap-jsanoja-v2.git` (público; `gh` autenticado en WSL). Demo: https://jsanoja.github.io/ujap-jsanoja-v2/ (se despliega en cada push a `master`).
-- Etiquetas: `v0-legacy` (Angular 12, requiere Node 14 + `npm install --legacy-peer-deps` con npm 8), `v1-angular-22`.
+- Etiquetas: `v0-legacy` (Angular 12, requiere Node 14 + `npm install --legacy-peer-deps` con npm 8), `v1-angular-22`, `v2-three-186`.
+- Luces: intensidades de r129 × PI y `PointLight` con `decay = 0` para conservar el aspecto original (ver comentario en `engine.service.ts`).
 - `ng lint` tiene 44 errores del código heredado (se corrigen en A4).
 
 ## Estado conocido antes de A2 (2026-09-27, histórico)
