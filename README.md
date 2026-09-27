@@ -8,6 +8,8 @@ Esta aplicación se inició en 2021 con Angular 12 y three.js r129 y se conserva
 **versión de referencia**. Las funciones nuevas (programas TXT, pinza y editor) se desarrollan en
 una aplicación aparte.
 
+**Demo:** <https://jsanoja.github.io/ujap-jsanoja-v2/>
+
 ## Ejes
 
 | Eje | Pieza | Giro | Mín (°) | Máx (°) | Vel. (°/s) |
