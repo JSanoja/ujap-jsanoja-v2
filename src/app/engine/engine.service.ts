@@ -1,7 +1,7 @@
 import * as THREE from "three";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
-import { TrackballControls } from "three/examples/jsm/controls/TrackballControls";
-import { GUI } from "three/examples/jsm/libs/dat.gui.module.js";
+import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+import { TrackballControls } from "three/addons/controls/TrackballControls.js";
+import GUI from "lil-gui";
 import { Mesh } from "three";
 
 import { ElementRef, Injectable, NgZone, OnDestroy } from "@angular/core";
@@ -15,7 +15,7 @@ export class EngineService implements OnDestroy {
   public scene: THREE.Scene;
   public light: THREE.AmbientLight;
   public controls: TrackballControls;
-  public clock: THREE.Clock;
+  public timer: THREE.Timer;
   public grid: THREE.GridHelper;
   private next: boolean = false;
   public gui_options: any = {
@@ -428,14 +428,18 @@ export class EngineService implements OnDestroy {
       antialias: true, // smooth edges
     });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
+    // three.js r152+: gestión de color sRGB (valor por defecto, explícito como referencia)
+    this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
-    // Stopwatch for time measurement
-    this.clock = new THREE.Clock();
+    // Stopwatch for time measurement (THREE.Clock está en desuso desde r179)
+    this.timer = new THREE.Timer();
 
     // create the scene
     this.scene = new THREE.Scene();
 
-    var ambientLight = new THREE.AmbientLight(0xcccccc, 0.4);
+    // three.js r155+: luces físicas. Las intensidades de r129 se multiplican por PI
+    // y la PointLight usa decay = 0 (sin atenuación) para conservar el aspecto original.
+    var ambientLight = new THREE.AmbientLight(0xcccccc, 0.4 * Math.PI);
     this.scene.add(ambientLight);
 
     this.camera = new THREE.PerspectiveCamera(
@@ -447,12 +451,12 @@ export class EngineService implements OnDestroy {
     this.camera.position.z = 800;
     this.camera.position.y = 400;
 
-    var pointLight = new THREE.PointLight(0xffffff, 0.8);
+    var pointLight = new THREE.PointLight(0xffffff, 0.8 * Math.PI, 0, 0);
     this.camera.add(pointLight);
     this.scene.add(this.camera);
 
     // soft white light
-    this.light = new THREE.AmbientLight(0x404040);
+    this.light = new THREE.AmbientLight(0x404040, Math.PI);
     this.light.position.z = 10;
     this.scene.add(this.light);
 
@@ -493,6 +497,7 @@ export class EngineService implements OnDestroy {
           0.1
         )
         .name("Setpoint [\xB0]")
+        .decimals(1)
         .listen();
       box
         .add(
@@ -503,10 +508,12 @@ export class EngineService implements OnDestroy {
           0.1
         )
         .name("Feedback [\xB0]")
+        .decimals(1)
         .listen();
       box
         .add(this.Roboter[name].rotation, "speed", 1.0, 200.0, 0.1)
         .name("Speed [\xB0/s]")
+        .decimals(1)
         .listen();
       box.open();
     });
@@ -593,7 +600,8 @@ export class EngineService implements OnDestroy {
     var curRot = 0.0;
     var deltaDegrees = 0.5;
     var sp, fb, er, deltaRot, deltaRad;
-    var deltaTime = this.clock.getDelta();
+    this.timer.update();
+    var deltaTime = this.timer.getDelta();
 
     this.movingParts.forEach((name) => {
       // Speed setpoint is in deg/s
