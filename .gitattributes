@@ -1,0 +1,11 @@
+# Normaliza finales de linea: LF en el repositorio, nativo en la copia de trabajo
+* text=auto
+
+# Modelos 3D: sin conversion de fin de linea ni diff (archivos grandes)
+*.obj -text -diff
+*.mtl -text -diff
+*.glb binary
+*.gltf -diff
+*.png binary
+*.jpg binary
+*.pdf binary

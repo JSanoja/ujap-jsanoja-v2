@@ -1,18 +1,21 @@
 /*****************************************************
  * node_modules imports
  *****************************************************/
-@import 'node_modules/bootstrap/scss/bootstrap.scss';
+@import "node_modules/bootstrap/scss/bootstrap.scss";
 
 /*****************************************************
  * project imports
  *****************************************************/
-@import 'variables';
-@import 'mixins';
+@import "variables";
+@import "mixins";
 
 /*****************************************************
  * styles
  *****************************************************/
-html, body, app-root, app-game {
+html,
+body,
+app-root,
+app-game {
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -50,4 +53,53 @@ body {
   * {
     z-index: 10;
   }
+}
+
+body {
+  font-family: Monospace;
+  background-color: #000;
+  color: #fff;
+  margin: 0px;
+  overflow: hidden;
+}
+.logo-ujap {
+  width: 250px;
+}
+#info {
+  color: #fff;
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  display: block;
+}
+#info a,
+.button {
+  color: #f00;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.RotatingColumn,
+.LinkArm,
+.Arm,
+.Wrist,
+.EndEffector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin-left: 0px;
+  margin-top: 0px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: #fff;
+  background: rgba(100, 100, 100, 0.8);
+  border-radius: 0.5em;
+  font-size: 12px;
+  line-height: 1.2;
+  transition: opacity 0.5s;
+  visibility: hidden;
 }
