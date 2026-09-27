@@ -1,43 +1,52 @@
-# ng-three-template
+# Emulador de brazo robótico — App 1 (referencia)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and is designed as a basic
-template for [ThreeJS](https://threejs.org/) combined with [Angular](https://angular.io/)
-and [Bootstrap](https://getbootstrap.com/) in Version 4.x
+Emulador 3D de un brazo robótico de 5 ejes inspirado en el LabVolt 5250, desarrollado como parte del
+Trabajo Especial de Grado de Juan Sanoja (Especialización en Automatización Industrial, Universidad
+"José Antonio Páez", UJAP).
 
-The project is setup to use global [SCSS](https://sass-lang.com/) only
-and [ViewEncapsulation.None](https://angular.io/api/core/ViewEncapsulation).
+Esta aplicación se inició en 2021 con Angular 12 y three.js r129 y se conserva actualizada como
+**versión de referencia**. Las funciones nuevas (programas TXT, pinza y editor) se desarrollan en
+una aplicación aparte.
 
-Feel free to do anything you want with this template.
+## Ejes
 
-## Three Links
+| Eje | Pieza | Giro | Mín (°) | Máx (°) | Vel. (°/s) |
+|---|---|---|---|---|---|
+| A1 | RotatingColumn (base) | z | −170 | 170 | 97,5 |
+| A2 | LinkArm (hombro) | y | −40 | 110 | 91 |
+| A3 | Arm (codo) | y | −90 | 65 | 89 |
+| A4 | Wrist (muñeca) | y | −140 | 100 | 90 |
+| A5 | EndEffector (giro de herramienta) | z | −175 | 175 | 177 |
 
-* Three Extensions: https://github.com/Itee/three-full
-* Three-Full Types: https://discourse.threejs.org/t/angular-threejs/2739/7
+## Uso
 
-## Development server
+- **Reset View:** devuelve la cámara a la vista inicial.
+- **Default Position:** lleva todos los ejes a 0°.
+- **Execute:** reproduce una secuencia de prueba de 6 poses.
+- Panel derecho: setpoint, realimentación y velocidad de cada eje.
+- Ratón: botón izquierdo gira, rueda acerca, botón derecho desplaza.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change
-any of the source files.
+## Desarrollo
 
-## Code scaffolding
+Requiere Node 22.22+ o 24.15+.
 
-Run `ng generate component component-name` to generate a new component. You can also
-use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm ci
+npm start          # http://localhost:4200/
+npm run build      # salida en dist/ujap-jsanoja-v2/browser
+npx ng lint
+```
 
-## Build
+Cada push a `master` se publica en GitHub Pages mediante `.github/workflows/pages.yml`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag
-for a production build.
+## Versiones
 
-## Running unit tests
+| Etiqueta | Contenido |
+|---|---|
+| `v0-legacy` | Estado 2021: Angular 12 + three.js r129 (requiere Node 14) |
+| `v1-angular-22` | Angular 22, standalone, builder `application`; three.js aún en 0.129 |
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Créditos y licencia
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out
-the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Basado en la plantilla [ng-three-template](https://github.com/JohnnyDevNull/ng-three-template) de
+Philipp John, bajo licencia MIT (ver `LICENSE.md`).
