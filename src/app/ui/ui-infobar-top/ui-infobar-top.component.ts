@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { match } from "assert";
-import { EngineService } from "src/app/engine/engine.service";
+import { EngineService } from "../../engine/engine.service";
 
 @Component({
   selector: "app-ui-infobar-top",

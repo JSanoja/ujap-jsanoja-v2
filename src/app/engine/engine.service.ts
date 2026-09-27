@@ -34,7 +34,7 @@ export class EngineService implements OnDestroy {
   public objLoadingComplete: boolean = false;
   public Roboter: any = {
     BaseFrame: {
-      filename: "/assets/models/robot/BaseFrame.obj",
+      filename: "assets/models/robot/BaseFrame.obj",
       position: new THREE.Vector3(0.0, 0.0, 0.0),
       rotAxis: "z",
       material: new THREE.MeshPhongMaterial({
@@ -44,7 +44,7 @@ export class EngineService implements OnDestroy {
       addAxis: false,
     },
     RotatingColumn: {
-      filename: "/assets/models/robot/RotatingColumn.obj",
+      filename: "assets/models/robot/RotatingColumn.obj",
       position: new THREE.Vector3(0.0, 0.0, -555.0),
       rotAxis: "z",
       material: new THREE.MeshPhongMaterial({
@@ -61,7 +61,7 @@ export class EngineService implements OnDestroy {
       addAxis: false,
     },
     Motor_RotatingColumn: {
-      filename: "/assets/models/robot/Motor_RotatingColumn.obj",
+      filename: "assets/models/robot/Motor_RotatingColumn.obj",
       position: new THREE.Vector3(0.0, 0.0, -555.0),
       rotAxis: "",
       material: new THREE.MeshPhongMaterial({
@@ -71,7 +71,7 @@ export class EngineService implements OnDestroy {
       addAxis: false,
     },
     LinkArm: {
-      filename: "/assets/models/robot/LinkArm.obj",
+      filename: "assets/models/robot/LinkArm.obj",
       position: new THREE.Vector3(-500.0, 0.0, -1045.0),
       rotAxis: "y",
       material: new THREE.MeshPhongMaterial({
@@ -88,7 +88,7 @@ export class EngineService implements OnDestroy {
       addAxis: false,
     },
     Motor_LinkArm: {
-      filename: "/assets/models/robot/Motor_LinkArm.obj",
+      filename: "assets/models/robot/Motor_LinkArm.obj",
       position: new THREE.Vector3(0.0, 0.0, -755.0), // mounted at RotatingColumn
       rotAxis: "",
       material: new THREE.MeshPhongMaterial({
@@ -98,7 +98,7 @@ export class EngineService implements OnDestroy {
       addAxis: false,
     },
     Arm: {
-      filename: "/assets/models/robot/Arm.obj",
+      filename: "assets/models/robot/Arm.obj",
       position: new THREE.Vector3(-500.0, 0.0, -2345.0),
       rotAxis: "y",
       material: new THREE.MeshPhongMaterial({
@@ -115,7 +115,7 @@ export class EngineService implements OnDestroy {
       addAxis: false,
     },
     Motor_Arm: {
-      filename: "/assets/models/robot/Motor_Arm.obj",
+      filename: "assets/models/robot/Motor_Arm.obj",
       position: new THREE.Vector3(-500.0, 0.0, -2345.0), // mounted at Arm
       rotAxis: "",
       material: new THREE.MeshPhongMaterial({
@@ -125,7 +125,7 @@ export class EngineService implements OnDestroy {
       addAxis: false,
     },
     Wrist: {
-      filename: "/assets/models/robot/Wrist.obj",
+      filename: "assets/models/robot/Wrist.obj",
       position: new THREE.Vector3(-1550.0, 0.0, -2345.0),
       rotAxis: "y",
       material: new THREE.MeshPhongMaterial({
@@ -142,7 +142,7 @@ export class EngineService implements OnDestroy {
       addAxis: false,
     },
     Motor_Wrist: {
-      filename: "/assets/models/robot/Motor_Wrist.obj",
+      filename: "assets/models/robot/Motor_Wrist.obj",
       position: new THREE.Vector3(-1550.0, 0.0, -2345.0), // mounted at Wrist
       rotAxis: "",
       material: new THREE.MeshPhongMaterial({
@@ -152,7 +152,7 @@ export class EngineService implements OnDestroy {
       addAxis: false,
     },
     EndEffector: {
-      filename: "/assets/models/robot/EndEffector.obj",
+      filename: "assets/models/robot/EndEffector.obj",
       position: new THREE.Vector3(-1850.0, 0.0, -2145.0),
       rotAxis: "z",
       material: new THREE.MeshPhongMaterial({
@@ -169,7 +169,7 @@ export class EngineService implements OnDestroy {
       addAxis: false,
     },
     Motor_EndEffector: {
-      filename: "/assets/models/robot/Motor_EndEffector.obj",
+      filename: "assets/models/robot/Motor_EndEffector.obj",
       position: new THREE.Vector3(-1550.0, 0.0, -2345.0),
       rotAxis: "",
       material: new THREE.MeshPhongMaterial({
